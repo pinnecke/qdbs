@@ -48,6 +48,14 @@ public class BaseTable implements Table {
         return this;
     }
 
+    public void close() {
+        try {
+            file.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     @Override
     public Table insertRecord(Record record) {
         return insert(record.getFields());
@@ -165,7 +173,12 @@ public class BaseTable implements Table {
 
         @Override
         public void close() {
+            table.close();
+        }
 
+        @Override
+        public String getOutputTableName() {
+            return this.table.name;
         }
     }
 

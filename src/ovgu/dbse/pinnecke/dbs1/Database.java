@@ -12,7 +12,7 @@ import java.util.function.Consumer;
 public class Database {
 
 
-    public static Table loadKundenTable() throws IOException {
+    public static BaseTable loadKundenTable() throws IOException {
         return createTable("kunde.db", "Kunde",
                 (builder) ->
                         builder
@@ -27,7 +27,7 @@ public class Database {
         );
     }
 
-    public static Table loadHaendlerTable() throws IOException {
+    public static BaseTable loadHaendlerTable() throws IOException {
         return createTable("haendler.db", "Haendler",
                 (builder) ->
                         builder
@@ -43,7 +43,7 @@ public class Database {
         );
     }
 
-    public static Table loadArtikelTable() throws IOException {
+    public static BaseTable loadArtikelTable() throws IOException {
         return createTable("artikel.db", "Artikel",
                 (builder) ->
                         builder
@@ -58,7 +58,7 @@ public class Database {
         );
     }
 
-    public static Table loadBietetAnTable() throws IOException {
+    public static BaseTable loadBietetAnTable() throws IOException {
         return createTable("bietet_an.db", "bietet_an",
                 (builder) ->
                         builder
@@ -77,7 +77,7 @@ public class Database {
         );
     }
 
-    public static Table loadBestellungTable() throws IOException {
+    public static BaseTable loadBestellungTable() throws IOException {
         return createTable("bestellung.db", "Bestellung",
                 (builder) ->
                         builder
@@ -96,7 +96,7 @@ public class Database {
         );
     }
 
-    public static Table loadIstAufTable() throws IOException {
+    public static BaseTable loadIstAufTable() throws IOException {
         return createTable("ist_auf.db", "ist_auf",
                 (builder) ->
                         builder

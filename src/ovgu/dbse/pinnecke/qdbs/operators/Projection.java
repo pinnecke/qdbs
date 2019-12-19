@@ -13,7 +13,7 @@ public class Projection extends UnaryOperator {
     List<Integer> srcAttributeidx = new ArrayList<>();
 
     public Projection(Operator source, String... attributeNames) {
-        super(source);
+        super("projection", source);
 
         List<Pair<Integer, Schema.Attribute>> tmpList = new ArrayList<>();
 

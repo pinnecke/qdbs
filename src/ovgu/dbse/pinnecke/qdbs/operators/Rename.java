@@ -12,7 +12,7 @@ public class Rename extends UnaryOperator {
     Schema dstSchema;
 
     public Rename(Operator source, String attributeOld, String attributeNew) {
-        super(source);
+        super("rename", source);
         if (!source.getSchema().hasAttributeByName(attributeOld)) {
             throw new NoSuchElementException("no such attribute");
         }

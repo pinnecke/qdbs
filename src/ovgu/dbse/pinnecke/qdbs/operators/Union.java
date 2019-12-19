@@ -7,18 +7,13 @@ public class Union extends BinaryOperator {
     private boolean leftHasNext;
 
     public Union(Operator left, Operator right) {
-        super(left, right);
+        super("union", left, right);
         Schemas.equalOrThrow(left.getSchema(), right.getSchema());
     }
 
     @Override
     public boolean hasNext() {
-        leftHasNext = left.hasNext();
-        if (leftHasNext) {
-            return true;
-        } else {
-            return right.hasNext();
-        }
+        return ((leftHasNext = left.hasNext())) || right.hasNext();
     }
 
     @Override
@@ -28,10 +23,6 @@ public class Union extends BinaryOperator {
 
     @Override
     public Record next() {
-        if (leftHasNext) {
-            return super.left.next();
-        } else {
-            return super.right.next();
-        }
+        return leftHasNext ? super.left.next() : super.right.next();
     }
 }

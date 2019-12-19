@@ -11,12 +11,12 @@ public class Tables {
         int max = schema.attributes.size();
         for (int i = 0; i < max; i++) {
             Schema.Attribute a = schema.attributes.get(i);
-            dst.printf("%s%s", StringUtils.center(a.getName(), a.getType() == Schema.DataType.INTEGER ? 12 : 30), i + 1 < max ? "|" : " ");
+            dst.printf("%s%s", StringUtils.center(a.getName(), a.getType() == Schema.DataType.INTEGER ? 72 : 80), i + 1 < max ? "|" : " ");
         }
         dst.println();
         for (int i = 0; i < max; i++) {
             Schema.Attribute a = schema.attributes.get(i);
-            for (int j = 0; j < (a.getType() == Schema.DataType.INTEGER ? 12 : 30); j++) {
+            for (int j = 0; j < (a.getType() == Schema.DataType.INTEGER ? 72 : 80); j++) {
                 dst.print("-");
             }
             dst.printf("%s", i + 1 < max ? "+" : "-");
@@ -29,10 +29,10 @@ public class Tables {
             for (int i = 0; i < max; i++) {
                 Schema.Attribute a = schema.attributes.get(i);
                 if (a.getType() == Schema.DataType.STRING) {
-                    dst.printf(" %1$-28s ", r.getStringAt(i));
+                    dst.printf(" %1$-78s ", r.getStringAt(i));
                     dst.printf("%s", i + 1 < max ? "|" : "");
                 } else {
-                    dst.printf("%1$11s ", r.getIntegerAt(i).toString());
+                    dst.printf("%1$71s ", r.getIntegerAt(i).toString());
                     dst.printf("%s", i + 1 < max ? "|" : "");
                 }
             }

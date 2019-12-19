@@ -13,6 +13,10 @@ public class MemoryTable implements Table {
     private List<Schema.Attribute> attributes = new ArrayList<>();
     private List<Record> records = new ArrayList<>();
 
+    public MemoryTable(Schema schema) {
+        this(schema.getAttributes());
+    }
+
     public MemoryTable(List<Schema.Attribute> attributes) {
         this.attributes.addAll(attributes);
     }
@@ -103,6 +107,11 @@ public class MemoryTable implements Table {
         @Override
         public void close() {
 
+        }
+
+        @Override
+        public String getOutputTableName() {
+            return "temp-" + System.currentTimeMillis();
         }
     }
 }

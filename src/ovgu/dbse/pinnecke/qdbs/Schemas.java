@@ -1,6 +1,7 @@
 package ovgu.dbse.pinnecke.qdbs;
 
 import java.io.IOException;
+import java.io.PrintStream;
 import java.io.RandomAccessFile;
 import java.util.ArrayList;
 import java.util.List;
@@ -49,5 +50,9 @@ public class Schemas {
             throw new UnsupportedOperationException("no such attribute with name '" +
                     attributeName + "'\navailable: " + schema.toString() + "\n");
         }
+    }
+
+    public static void print(PrintStream out, Schema schema) {
+        out.println(schema);
     }
 }

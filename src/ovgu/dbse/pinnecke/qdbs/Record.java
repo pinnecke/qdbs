@@ -11,6 +11,10 @@ public class Record {
     private List<Schema.Attribute> schema;
     private List<Object> fields = new ArrayList<>();
 
+    public Record(Schema schema, Object[] values) {
+        this(schema.getAttributes(), values);
+    }
+
     public Record(List<Schema.Attribute> schema, Object[] values) {
         this.schema = schema;
         if (values.length != schema.size()) {

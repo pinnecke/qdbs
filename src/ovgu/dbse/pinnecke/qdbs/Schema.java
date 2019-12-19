@@ -6,6 +6,7 @@ import org.apache.commons.lang3.tuple.Pair;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
@@ -16,6 +17,10 @@ public class Schema implements Cloneable {
 
     public Schema(List<Attribute> attributes) {
         this.attributes.addAll(attributes);
+    }
+
+    public Schema(Attribute... attributes) {
+        this.attributes.addAll(Arrays.asList(attributes));
     }
 
     public static String attributeListToString(List<Attribute> attributes) {
@@ -78,7 +83,7 @@ public class Schema implements Cloneable {
         private DataType type;
         private String name;
 
-        Attribute(String name, DataType type) {
+        public Attribute(String name, DataType type) {
             this.name = name;
             this.type = type;
         }
